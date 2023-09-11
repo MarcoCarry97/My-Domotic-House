@@ -1,0 +1,238 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta author="Marco Carega">
+<title>My Domotic House</title>
+<style>
+body{
+	
+	background-color:rgba(245,245,245,1.00);
+    height:auto;
+	font-family:Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
+	padding-left:200px;
+	padding-right:200px;
+	padding-top:0px;
+}
+
+#flag{
+	width:50px;
+	
+}
+img[src="Logo-Relazione-Casa-Domotica-prova.png"]{
+	width:150px;
+	heigth:150px;
+}
+a{
+	text-decoration:none;
+}
+header div[name="head"]{
+width:150px;
+height:100px;
+display:inline-block;
+}
+nav#menu{
+	height:150px;
+}
+nav menu ul{
+	padding:0px;
+margin:0px;
+border-bottom:2px rgba(52,94,255,1.00);
+}
+nav#menu li{
+float: left;
+	width: 120px;
+	height:50px;
+	text-align: center;
+	list-style: none;
+}
+nav#menu li a {
+	background-color: #454545;
+	color: #FFF;
+	padding: 15px 20px;
+	text-decoration: none;
+	display: block;
+	
+}	
+nav#menu li a:hover{
+	text-shadow: 0px 0px 1px #FFF;
+	background-color:rgba(130,130,130,1.00);
+}
+
+nav#menu ul section {
+	width:120px;
+	box-shadow: 0px 20px 20px #7C7C7C;
+}
+nav#menu ul section{
+	position:absolute;
+	top: 30px;
+	visibility: hidden;
+
+}
+
+nav#menu ul li:hover section{
+	visibility: visible;
+	
+}
+nav#menu ul section div{
+	background-color:rgba(118,118,118,1.00);
+	padding:3px;
+}
+nav#menu ul section div:hover{
+	background-color:rgba(60,135,224,1.00);
+}
+input[type="text"]{ 
+height:40px;
+width:225px;
+border: 1px solid grey;
+border-radius:5px;
+}
+button{ 
+height:40px;
+width:225px;
+border: 1px solid grey;
+border-radius:3px;
+}
+main{
+	padding-left:90px;
+	padding-right:90px;
+	padding-top:0px;
+}
+</style>
+<script>
+onscroll = function() {
+  var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+
+  if (scrollTop > 250) {
+      document.getElementById('menu').style.position = 'fixed';
+    
+  } else {
+    document.getElementById('menu').style.position = 'static';
+  }
+}; 
+</script>
+</head>
+<body>
+<header id="header">
+
+<div name="head">
+<h1>My Domotic House</h1>
+</div>
+<div name="head">
+<img src="Logo-Relazione-Casa-Domotica-prova.png">
+</div >
+<div name="head">
+<img src="marconi logo.png">
+</div>
+
+</header>
+<nav id="menu">
+<ul>
+<li> <a href="home">Home</a></li>
+<li> <a href="panels">Panels</a></li>
+<li> <a href="floor1">Floor 1</a></li>
+<li> <a href="floor2">Floor 2</a></li>
+<li> <a href="garageroom">Garage</a></li>
+<li> <a href="">Garden</a></li>
+<li id="casella"><a href="#">Languages</a>
+<section>
+<a href="#">
+<img src="bandiera italia.png" id="flag">Italiano
+</a>
+<a href="#">
+<img src="bandiera regno unito.png" id="flag">English
+</a>
+</section>
+</li>
+</nav>
+<main>
+<section>
+<div id="welcome">
+ Welcome
+</div>
+</section>
+<section>
+<div>
+  <h2>Solar Panel</h2>
+<form>
+ Voltage (V):<input type="text" name="voltage" id="voltage">
+<br> 
+<br>
+Current (A):<input type="text" name="current" id="current"> 
+<br>
+<br>
+Power (W):   <input type="text" name="power" id="power">
+</form>
+</div>
+<div>
+<h2> Thermal Panel </h2>
+<form>
+Temperature (°C):<input type="text" name="tempanel" id="tempanel">
+</div>
+</section>
+<section>
+<div><h2>Floor 1</h2>
+<form>
+Temperature(°C):<input type="text" name="tempfloor1" id="tempfloor1">
+<br>
+<br>
+ <button onclick:"LightFloor1()">Light</button><div name="lightfloor1" id="lightfloor1"></div>
+ 
+ <br>
+<button onclick:"Air-Conditioning()">Air-Conditioning</button><div name="air" id="air"></div>
+ 
+ <br>
+<button onclick:"DoorFloor1()">Door</button><div name="doorfloor1" id="doorfloor1"></div>
+<br>
+<button onclick:"AlarmLeftWindowFloor1()">Left Window</button><div name="window11" id="window11"></div> 
+<br>
+<button onclick:"AlarmRightWindowFloor1()">Right Window</button><div name="window12" id="window12"></div>
+</form>
+</div>
+</section>
+<section>
+<div>
+  <h2>Floor 2</h2>
+<form>
+Temperature(°C):<input type="text" name="tempfloor2" id="tempfloor2">
+<br>
+<br>
+<button onclick:"LightFLoor2()">Light</button><div name="lightfloor2" id="lightfloor2">
+
+<br>
+ <button onclick:"Fan()">Fan</button> <div name="fan" id="fan">
+ <br>
+ <button onclick:"AlarmLeftWindowFloor2()">Left Window</button> <div name="window21" id="window21"></div>
+ <br>
+ <button onclick:"AlarmRightWindowFloor2()">Right Window</button> <div name="window21" id="window22"></div>
+</form>
+</div>
+</section>
+<div>
+  <h2>Garage</h2>
+<form>
+Temperature(°C):<input type="text" name="tempfloor2" id="tempfloor2">
+<br>
+<br>
+  <button onclick:"GarageLight()">Light</button> <div name="garagelight" id="garagelight"></div>
+  <br>
+<button onclick:"GarageDoor()">Door</button><div name="garagedoor" id="garagedoor"></div>  
+<br>
+ <button onclick:"Boiler()">Boiler</button><div name="boiler" id="boiler"></div>
+</form>
+</div>
+</section>
+<div>
+  <h2>Garden</h2>
+<form>
+<button onclick:"GardenLight()">Light</button><divname="gardenlight" id="gardenlight"></div>
+<br>
+<button onclick:"WateringCan()">Watering Can</button><div name="wateringcan" id="wateringcan"></div>
+<br>
+</div>
+</section>
+<main>
+<div> This website is a property of Marco Carega, all right reserved.
+</div>
+</body>
+</html>
